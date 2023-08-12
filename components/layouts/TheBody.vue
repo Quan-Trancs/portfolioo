@@ -4,8 +4,10 @@
 
 <template>
   <div class="h-full">
+    <link href="https://fonts.cdnfonts.com/css/atari" rel="stylesheet">
     <AboutMe></AboutMe>
     <Skills></Skills>
+    <Projects></Projects>
   </div>
 </template>
 

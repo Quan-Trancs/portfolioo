@@ -2,13 +2,18 @@
 import {ref} from "vue";
 
 const skillView = ref(['HTML/CSS', 'JavaScript', 'vue.js', 'nuxt3'])
+const skillType = ref('front')
 const frontEnd = ['HTML/CSS', 'JavaScript', 'vue.js', 'nuxt3']
 const backEnd = ['Java', 'Spring Boot']
 const database = ['SQL']
-function viewSkill (skillType) {
-  if (skillType === 'front') {
+function skillTypeCheck (chosenSkillType) {
+  return (skillType.value === chosenSkillType)
+}
+function viewSkill (chosenSkillType) {
+  skillType.value = chosenSkillType
+  if (chosenSkillType === 'front') {
     skillView.value = frontEnd
-  } else if (skillType === 'back') {
+  } else if (chosenSkillType === 'back') {
     skillView.value = backEnd
   } else {
     skillView.value = database
@@ -17,15 +22,17 @@ function viewSkill (skillType) {
 </script>
 
 <template>
-  <div>
-    <link href="https://fonts.cdnfonts.com/css/atari" rel="stylesheet">
+  <div style="margin-top: 200px">
     <div class="sectionTitle" style="font-family: 'Atari', sans-serif; text-shadow: 0 0 20px limegreen, 0 0 30px darkgreen">
       TECHNICAL SKILLS
     </div>
     <div class="skillList">
-      <button @click="viewSkill('front')">front-end</button>
-      <button @click="viewSkill('back')">back-end</button>
-      <button @click="viewSkill('data')">database</button>
+      <button v-if="skillTypeCheck('front')" style="text-shadow: 0 0 30px green, 0 0 20px darkgreen;" @click="viewSkill('front')">front-end</button>
+      <button v-if="!skillTypeCheck('front')" @click="viewSkill('front')">front-end</button>
+      <button v-if="skillTypeCheck('back')" style="text-shadow: 0 0 30px green, 0 0 20px darkgreen;" @click="viewSkill('back')">back-end</button>
+      <button v-if="!skillTypeCheck('back')" @click="viewSkill('back')">back-end</button>
+      <button v-if="skillTypeCheck('data')" style="text-shadow: 0 0 30px green, 0 0 20px darkgreen;" @click="viewSkill('data')">database</button>
+      <button v-if="!skillTypeCheck('data')" @click="viewSkill('data')">database</button>
     </div>
     <ul class="skills">
       <li v-for="skill in skillView">
@@ -39,8 +46,9 @@ function viewSkill (skillType) {
 .skills {
   display: flex;
   justify-content: center;
+  list-style-type: none;
   height: 100px;
-  font-size: 20px; /* 14px */
+  font-size: 30px; /* 14px */
   line-height: 100px; /* 20px */
   margin-top: 40px;
 }
@@ -68,7 +76,7 @@ function viewSkill (skillType) {
   text-shadow: 0 0 30px green, 0 0 20px darkgreen;
 }
 .skillList button:focus{
-  border: 7px solid white;
-  padding-inline: 30px;
+  text-shadow: 0 0 30px green, 0 0 20px darkgreen;
+
 }
 </style>

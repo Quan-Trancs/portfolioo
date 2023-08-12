@@ -4,7 +4,9 @@
 
 <template>
   <div>
-    <div class="sectionTitle">ABOUT ME</div>
+    <div class="sectionTitle" style="font-family: 'Atari', sans-serif; text-shadow: 0 0 20px limegreen, 0 0 30px darkgreen">
+      ABOUT ME
+    </div>
     <div class="commandContainer">
       <div class="flex overflow-x-scroll typewriter">
         <p class="">Hi!</p>

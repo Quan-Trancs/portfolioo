@@ -6,7 +6,7 @@
   <div class="bg-image">
     <TheHeader/>
     <TheBody/>
-    <TheFooter/>
+    <TheFooter class="footer"/>
   </div>
 </template>
 
@@ -15,6 +15,8 @@
   background-image: url('static/bg.jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  min-height: 2000px;
+}
+.footer {
+  margin-top: auto;
 }
 </style>
