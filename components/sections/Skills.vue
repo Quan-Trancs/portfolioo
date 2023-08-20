@@ -22,7 +22,8 @@ function viewSkill (chosenSkillType) {
 </script>
 
 <template>
-  <div style="margin-top: 200px">
+  <div>
+    <div class="anchor"></div>
     <div class="sectionTitle" style="font-family: 'Atari', sans-serif; text-shadow: 0 0 20px limegreen, 0 0 30px darkgreen">
       TECHNICAL SKILLS
     </div>
